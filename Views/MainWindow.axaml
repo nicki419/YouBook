@@ -1,8 +1,9 @@
-<Window xmlns="https://github.com/avaloniaui"
+<suki:SukiWindow xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:YouBook.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         MinWidth="800" MinHeight="{Binding WindowHeight}"
         x:Class="YouBook.Views.MainWindow"
@@ -26,11 +27,40 @@
             <ExperimentalAcrylicBorder.Material>
                 <ExperimentalAcrylicMaterial
                     BackgroundSource="Digger"
-                    TintColor="Black"
+                    TintColor="{DynamicResource BackgroundBrush}"
                     TintOpacity="1"
-                    MaterialOpacity="0.5" />
+                    MaterialOpacity="0.3" />
             </ExperimentalAcrylicBorder.Material>
         </ExperimentalAcrylicBorder>
+        
+        <SplitView  IsPaneOpen="True"
+                    DisplayMode="Inline"
+                    OpenPaneLength="300">
+            <SplitView.Pane>
+                <Panel>
+                    <ExperimentalAcrylicBorder IsHitTestVisible="False">
+                        <ExperimentalAcrylicBorder.Material>
+                            <ExperimentalAcrylicMaterial
+                                BackgroundSource="Digger"
+                                TintColor="{DynamicResource BackgroundBrush}"
+                                TintOpacity="1"
+                                MaterialOpacity="0.3" />
+                        </ExperimentalAcrylicBorder.Material>
+                    </ExperimentalAcrylicBorder>
+                    <TextBlock Text="Pane"
+                        FontSize="24"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"/>
+                </Panel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <TextBlock Text="Content"
+                    FontSize="24"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"/>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
     </Panel>
-
-</Window>
+</suki:SukiWindow>
