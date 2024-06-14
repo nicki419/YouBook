@@ -1,24 +1,33 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Avalonia.Controls;
 using ReactiveUI;
+using CommunityToolkit.Mvvm.Input;
+using SukiUI.Controls;
+using YouBook.Views;
+using YouBook.Views.Dialogues;
+using YouBook.Models.Messages;
+using System.Diagnostics;
 
 namespace YouBook.ViewModels;
 
-public class MainWindowViewModel : ViewModelBase
+public partial class MainWindowViewModel : ViewModelBase
 {
     public MainWindowViewModel() {
         if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
             TitleBarVisible = false;
-            WindowHeight = 490;
-        } else {
-            WindowHeight = 450;
         }
     }
-    private int windowHeight = 450;
-    public int WindowHeight {
-        get => windowHeight;
-        set => this.RaiseAndSetIfChanged(ref windowHeight, value);
+
+    [RelayCommand(CanExecute = nameof(IntroDialogueCanExecute))]
+    private static void OpenIntroDialogue() {
+        SukiHost.ShowDialog(new IntroDialogue(), allowBackgroundClose: false);
     }
+
+    private bool IntroDialogueCanExecute() {
+        return true;
+    }
+
     private bool titleBarVisible = true;
     public bool TitleBarVisible {
         get => titleBarVisible;

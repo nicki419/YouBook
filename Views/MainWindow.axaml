@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        MinWidth="800" MinHeight="{Binding WindowHeight}"
+        
+        mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="700"
+        MinWidth="1400" MinHeight="700"
+        Width="1400" Height="700"
         x:Class="YouBook.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -23,44 +25,25 @@
     </Design.DataContext>
 
     <Panel>
-        <ExperimentalAcrylicBorder IsHitTestVisible="False">
-            <ExperimentalAcrylicBorder.Material>
-                <ExperimentalAcrylicMaterial
-                    BackgroundSource="Digger"
-                    TintColor="{DynamicResource BackgroundBrush}"
-                    TintOpacity="1"
-                    MaterialOpacity="0.3" />
-            </ExperimentalAcrylicBorder.Material>
-        </ExperimentalAcrylicBorder>
-        
-        <SplitView  IsPaneOpen="True"
-                    DisplayMode="Inline"
-                    OpenPaneLength="300">
-            <SplitView.Pane>
-                <Panel>
-                    <ExperimentalAcrylicBorder IsHitTestVisible="False">
-                        <ExperimentalAcrylicBorder.Material>
-                            <ExperimentalAcrylicMaterial
-                                BackgroundSource="Digger"
-                                TintColor="{DynamicResource BackgroundBrush}"
-                                TintOpacity="1"
-                                MaterialOpacity="0.3" />
-                        </ExperimentalAcrylicBorder.Material>
-                    </ExperimentalAcrylicBorder>
-                    <TextBlock Text="Pane"
-                        FontSize="24"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"/>
-                </Panel>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <Grid>
-                    <TextBlock Text="Content"
-                    FontSize="24"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"/>
-                </Grid>
-            </SplitView.Content>
-        </SplitView>
+        <suki:SukiSideMenu>
+            <suki:SukiSideMenu.HeaderContent>
+            <!-- your header content -->
+            </suki:SukiSideMenu.HeaderContent>
+
+            <suki:SukiSideMenu.Items>
+            
+                <suki:SukiSideMenuItem Header="Statistics">
+                    <suki:SukiSideMenuItem.Icon>
+                        <!-- your icon content -->
+                    </suki:SukiSideMenuItem.Icon>
+                    <suki:SukiSideMenuItem.PageContent>
+                        <Panel>
+                            <TextBlock Margin="200" Text="Statistics Page"></TextBlock>
+                            <Button Command="{Binding OpenIntroDialogueCommand}">Click me</Button>	
+                        </Panel>
+                    </suki:SukiSideMenuItem.PageContent>
+                </suki:SukiSideMenuItem>
+            </suki:SukiSideMenu.Items>
+        </suki:SukiSideMenu>
     </Panel>
 </suki:SukiWindow>
