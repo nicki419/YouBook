@@ -58,20 +58,38 @@ namespace YouBook.Lang {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Goodbye!.
+        ///   Looks up a localized string similar to Choose Your Language:.
         /// </summary>
-        public static string farewell {
+        public static string WelcomePage_Language {
             get {
-                return ResourceManager.GetString("farewell", resourceCulture);
+                return ResourceManager.GetString("WelcomePage.Language", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to !.
+        ///   Looks up a localized string similar to Let&apos;s Go!.
         /// </summary>
-        public static string greeting {
+        public static string WelcomePage_StartButton {
             get {
-                return ResourceManager.GetString("greeting", resourceCulture);
+                return ResourceManager.GetString("WelcomePage.StartButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let&apos;s get you set up first..
+        /// </summary>
+        public static string WelcomePage_WelcomeContent {
+            get {
+                return ResourceManager.GetString("WelcomePage.WelcomeContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to YouBook!.
+        /// </summary>
+        public static string WelcomePage_WelcomeTitle {
+            get {
+                return ResourceManager.GetString("WelcomePage.WelcomeTitle", resourceCulture);
             }
         }
     }

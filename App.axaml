@@ -1,6 +1,7 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:sukiUi="clr-namespace:SukiUI;assembly=SukiUI"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              x:Class="YouBook.App"
              xmlns:local="using:YouBook"
              RequestedThemeVariant="Default">
@@ -12,5 +13,13 @@
   
     <Application.Styles>
         <sukiUi:SukiTheme ThemeColor="Red" />  
+        <materialIcons:MaterialIconStyles />
+
+        <Style Selector="Label">
+            <Setter Property="FontFamily" Value="Noto" />
+        </Style>
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="Noto" />
+        </Style>
     </Application.Styles>
 </Application>

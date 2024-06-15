@@ -118,19 +118,19 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="WelcomePage.WelcomeTitle" xml:space="preserve">
-    <value>Welcome to YouBook!</value>
+    <value>Wilkommen bei YouBook!</value>
     <comment />
   </data>
 	<data name="WelcomePage.WelcomeContent" xml:space="preserve">
-    <value>Let's get you set up first.</value>
+    <value>Richten wir erstmal alles für dich ein.</value>
     <comment />
   </data>
 	<data name="WelcomePage.Language" xml:space="preserve">
-    <value>Choose Your Language:</value>
+    <value>Wähle deine Sprache:</value>
     <comment />
   </data>
 	<data name="WelcomePage.StartButton" xml:space="preserve">
-    <value>Let's Go!</value>
+    <value>Los Geht's!</value>
     <comment />
   </data>
 </root>

@@ -21,7 +21,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     [RelayCommand(CanExecute = nameof(IntroDialogueCanExecute))]
     private static void OpenIntroDialogue() {
-        SukiHost.ShowDialog(new IntroDialogue(), allowBackgroundClose: false);
+        SukiHost.ShowDialog(new IntroDialogueViewModel(), allowBackgroundClose: false);
     }
 
     private bool IntroDialogueCanExecute() {
@@ -31,6 +31,6 @@ public partial class MainWindowViewModel : ViewModelBase
     private bool titleBarVisible = true;
     public bool TitleBarVisible {
         get => titleBarVisible;
-        set => this.RaiseAndSetIfChanged(ref titleBarVisible, value);
+        set => this.SetProperty(ref titleBarVisible, value);
     }
 }
