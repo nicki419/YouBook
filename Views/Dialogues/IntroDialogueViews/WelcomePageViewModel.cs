@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,9 +30,9 @@ namespace YouBook.Views.Dialogues.IntroDialogueViews
                 }
             }
 
-            if(SupportedCultures.Contains(CultureInfo.CurrentCulture.NativeName))
+            if(SupportedCultures.Contains(Lang.Resources.Culture.IsNeutralCulture ? Lang.Resources.Culture.Parent.NativeName : Lang.Resources.Culture.Parent.NativeName))
             {
-                SelectedSupportedCulture = CultureInfo.CurrentCulture.NativeName;
+                SelectedSupportedCulture = Lang.Resources.Culture.IsNeutralCulture ? Lang.Resources.Culture.Parent.NativeName : Lang.Resources.Culture.Parent.NativeName;
             } 
             else 
             {
@@ -39,5 +41,15 @@ namespace YouBook.Views.Dialogues.IntroDialogueViews
         }
         public AvaloniaList<string> SupportedCultures { get; } = [];
         [ObservableProperty] private string _selectedSupportedCulture;
+        partial void OnSelectedSupportedCultureChanged(string? oldValue, string newValue)
+        {
+            if(oldValue == newValue) return;
+
+            var cultureInfo = CultureInfo.GetCultures(CultureTypes.AllCultures)
+                .FirstOrDefault(culture => culture.NativeName.Equals(newValue, StringComparison.InvariantCultureIgnoreCase));
+            Lang.Resources.Culture = cultureInfo ?? CultureInfo.InvariantCulture;
+            Debug.WriteLine("Selected culture: " + Lang.Resources.Culture.NativeName);
+            
+        }
     }
 }

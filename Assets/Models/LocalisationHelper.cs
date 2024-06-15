@@ -19,7 +19,7 @@ namespace YouBook.Assets.Models
                     ResourceSet rs = rm.GetResourceSet(culture, true, false);
                     // or ResourceSet rs = rm.GetResourceSet(new CultureInfo(culture.TwoLetterISOLanguageName), true, false);
                     string isSupported = (rs == null) ? " is not supported" : " is supported";
-                    Debug.WriteLine(culture + isSupported);
+                    //Debug.WriteLine(culture + isSupported);
                     if(rs != null) supportedCultures.Add(culture);
                 }
                 catch (CultureNotFoundException exc)
