@@ -7,10 +7,11 @@
              xmlns:dvm="using:YouBook.Views.Dialogues"
              x:Class="YouBook.Views.Dialogues.IntroDialogue"
              x:DataType="dvm:IntroDialogueModel"
+             xmlns:lang="clr-namespace:YouBook.Lang"
 
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              MinWidth="800" MinHeight="450"
              Width="800" Height="450"
              >
-  Welcome to Avalonia!
+  <TextBlock Text="{x:Static lang:Resources.greeting}"/>
 </UserControl>
