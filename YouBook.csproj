@@ -6,11 +6,14 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <CoreCompileDependsOn>PrepareResources;$(CompileDependsOn)</CoreCompileDependsOn>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Lang\" />
     <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Include="Lang\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,5 +25,25 @@
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.0-beta2" />
     <PackageReference Include="CommunityToolkit.mvvm" Version="8.2.2" />
     <PackageReference Include="SukiUI" Version="6.0.0-beta7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Lang\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <StronglyTypedFileName>Lang\Resources.Designer.cs</StronglyTypedFileName>
+      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+      <StronglyTypedNamespace>YouBook.Lang</StronglyTypedNamespace>
+      <StronglyTypedClassName>Resources</StronglyTypedClassName>
+      <PublicClass>true</PublicClass>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Lang\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
