@@ -133,4 +133,22 @@
     <value>Let's Go!</value>
     <comment />
   </data>
+	<data name="IntroDialogue.ThemePage.Title" xml:space="preserve">
+		<value>Appearance</value>
+	</data>
+	<data name="GeneralStrings.Dark" xml:space="preserve">
+		<value>Dark</value>
+	</data>
+	<data name="GeneralStrings.Light" xml:space="preserve">
+		<value>Light</value>
+	</data>
+	<data name="GeneralStrings.System" xml:space="preserve">
+		<value>System</value>
+	</data>
+	<data name="IntroDialogue.ThemePage.Colour" xml:space="preserve">
+		<value>Colours</value>
+	</data>
+	<data name="GeneralStrings.Custom" xml:space="preserve">
+		<value>Custom</value>
+	</data>
 </root>
