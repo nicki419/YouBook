@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Avalonia.Collections;
 using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
-using YouBook.Assets.Models;
+using YouBook.Lang;
 using YouBook.ViewModels;
 
 namespace YouBook.Views.Dialogues.IntroDialogueViews
@@ -18,7 +18,7 @@ namespace YouBook.Views.Dialogues.IntroDialogueViews
         public WelcomePageViewModel()
         {
             SupportedCultures = new AvaloniaList<string> {};
-            foreach (CultureInfo culture in LocalisationHelper.GetSupportedCultures())
+            foreach (CultureInfo culture in LocalisationHelper.SupportedCultures)
             {
                 if (culture.Equals(CultureInfo.InvariantCulture))
                 {
@@ -30,9 +30,9 @@ namespace YouBook.Views.Dialogues.IntroDialogueViews
                 }
             }
 
-            if(SupportedCultures.Contains(Lang.Resources.Culture.IsNeutralCulture ? Lang.Resources.Culture.Parent.NativeName : Lang.Resources.Culture.Parent.NativeName))
+            if(SupportedCultures.Contains(LocalisationHelper.Culture.IsNeutralCulture ? LocalisationHelper.Culture.Parent.NativeName : LocalisationHelper.Culture.Parent.NativeName))
             {
-                SelectedSupportedCulture = Lang.Resources.Culture.IsNeutralCulture ? Lang.Resources.Culture.Parent.NativeName : Lang.Resources.Culture.Parent.NativeName;
+                SelectedSupportedCulture = LocalisationHelper.Culture.IsNeutralCulture ? LocalisationHelper.Culture.Parent.NativeName : LocalisationHelper.Culture.Parent.NativeName;
             } 
             else 
             {
@@ -47,8 +47,8 @@ namespace YouBook.Views.Dialogues.IntroDialogueViews
 
             var cultureInfo = CultureInfo.GetCultures(CultureTypes.AllCultures)
                 .FirstOrDefault(culture => culture.NativeName.Equals(newValue, StringComparison.InvariantCultureIgnoreCase));
-            Lang.Resources.Culture = cultureInfo ?? CultureInfo.InvariantCulture;
-            Debug.WriteLine("Selected culture: " + Lang.Resources.Culture.NativeName);
+            LocalisationHelper.SetLanguage(cultureInfo ?? new CultureInfo("en"));
+            Debug.WriteLine("Selected culture: " + LocalisationHelper.Culture.NativeName);
             
         }
     }

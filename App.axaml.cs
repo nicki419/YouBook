@@ -5,6 +5,9 @@ using Avalonia.Markup.Xaml;
 using YouBook.ViewModels;
 using YouBook.Views;
 using YouBook.Lang;
+using Avalonia.Markup.Xaml.Styling;
+using System;
+using System.Linq;
 
 namespace YouBook;
 
@@ -17,7 +20,10 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        Lang.Resources.Culture = CultureInfo.CurrentCulture;
+        LocalisationHelper.SupportedCultures = LocalisationHelper.GetSupportedCultures();
+        LocalisationHelper.AutoSetCulture();
+
+
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow
@@ -27,5 +33,6 @@ public partial class App : Application
         }
 
         base.OnFrameworkInitializationCompleted();
+        LocalisationHelper.SetLanguage(LocalisationHelper.Culture);
     }
 }
