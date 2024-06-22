@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace YouBook.Views.Dialogues.IntroDialogueViews;
 
-public partial class IntroStacksView : UserControl
+public partial class ThemePageView : UserControl
 {
-    public IntroStacksView()
+    public ThemePageView()
     {
         InitializeComponent();
     }

@@ -21,7 +21,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     [RelayCommand(CanExecute = nameof(IntroDialogueCanExecute))]
     private static void OpenIntroDialogue() {
-        SukiHost.ShowDialog(new IntroDialogueViewModel(), allowBackgroundClose: true);
+        SukiHost.ShowDialog(new IntroDialogueViewModel(), allowBackgroundClose: false);
     }
 
     private bool IntroDialogueCanExecute() {

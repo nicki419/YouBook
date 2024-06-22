@@ -1,0 +1,137 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:YouBook.ViewModels"
+             xmlns:dvm="using:YouBook.Views.Dialogues"
+             xmlns:IDvm="using:YouBook.Views.Dialogues.IntroDialogueViews"
+             xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             xmlns:sukiModels="clr-namespace:SukiUI.Models;assembly=SukiUI"
+             xmlns:converters="clr-namespace:YouBook.Models.Converters"
+             x:Class="YouBook.Views.Dialogues.IntroDialogueViews.ThemePageView"
+             x:DataType="IDvm:ThemePageViewModel"
+             
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             MinWidth="800" MinHeight="450"
+             Width="800" Height="450"
+             >
+
+  <UserControl.Styles>
+    <Style Selector="RadioButton.GigaChips#RadioColor:checked Border#SelectedBorder">
+      <Setter Property="BorderBrush" Value="{DynamicResource SukiCardBackground}" />
+      <Setter Property="BorderThickness" Value="5" />
+      <Setter Property="Margin" Value="3" />
+    </Style>
+    <Style Selector="RadioButton.GigaChips#RadioColor:checked PathIcon">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+  </UserControl.Styles>
+
+  <UserControl.Resources>
+    <converters:IsColourSelectedConverter x:Key="IsColourSelectedConverter" />
+  </UserControl.Resources>
+
+  <Grid RowDefinitions="Auto, *">
+    <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="{DynamicResource ThemePage.Title}" FontWeight="SemiBold"/>
+    <icon:MaterialIcon Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" ZIndex="-1" Foreground="{DynamicResource SukiText}" Opacity="0.05" Height="350" Width="350" Kind="ThemeLightDark" />
+
+    <StackPanel Margin="0,20,0,0" Grid.Row="2">
+      <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" FontSize="15" Text="{DynamicResource ThemePage.BaseTheme}" />
+      <StackPanel HorizontalAlignment="Center"
+                  Orientation="Horizontal"
+                  Spacing="20">
+        <RadioButton  Width="120"
+                      Height="60"
+                      Padding="0"
+                      Classes="GigaChips"
+                      GroupName="RadioBaseTheme"
+                      Command="{Binding ChangeBaseTheme}"
+                      CommandParameter="True"
+                      IsChecked="{Binding IsLightTheme}">
+          <Border Margin="-50"
+                  Background="#fafafa"
+                  CornerRadius="{DynamicResource MediumCornerRadius}">
+            <Grid Margin="15,0,0,0">
+              <TextBlock Margin="42"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        FontWeight="SemiBold"
+                        Foreground="#222222"
+                        Text="{DynamicResource GeneralStrings.Light}" />
+            </Grid>
+          </Border>
+        </RadioButton>
+
+        <RadioButton Width="120"
+                      Height="60"
+                      Classes="GigaChips"
+                      GroupName="RadioBaseTheme"
+                      Command="{Binding ChangeBaseTheme}"
+                      CommandParameter="False"
+                      IsChecked="{Binding !IsLightTheme}">
+          <Border Margin="-50"
+                  Background="#222222"
+                  CornerRadius="{DynamicResource MediumCornerRadius}">
+            <Grid Margin="15,0,0,0">
+              <TextBlock Margin="42"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Bottom"
+                          FontWeight="SemiBold"
+                          Foreground="#fafafa"
+                          Text="{DynamicResource GeneralStrings.Dark}" />
+            </Grid>
+          </Border>
+        </RadioButton>
+      </StackPanel>
+
+      <TextBlock Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="15" Text="{DynamicResource ThemePage.ColourTheme}" />
+      <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding AvailableColours}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+              <StackPanel HorizontalAlignment="Center"
+                          Orientation="Horizontal"
+                          Spacing="10" />
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate x:DataType="sukiModels:SukiColorTheme">
+            <RadioButton  Width="50"
+                          Height="50"
+                          Classes="GigaChips"
+                          Command="{Binding ((IDvm:ThemePageViewModel)DataContext).SwitchToColorThemeCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type IDvm:ThemePageView}}}"
+                          CommandParameter="{Binding}"
+                          CornerRadius="50"
+                          Name="RadioColor"
+                          IsChecked="{Binding ., Converter={StaticResource IsColourSelectedConverter}}"
+                          GroupName="RadioColorTheme">
+              <Border Margin="-30"
+                      Background="{Binding PrimaryBrush}"
+                      CornerRadius="50" />
+            </RadioButton>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+
+      <suki:GlassCard Margin="15">
+        <DockPanel>
+          <ToggleButton VerticalAlignment="Top"
+                        Classes="Switch"
+                        DockPanel.Dock="Right"
+                        IsChecked="{Binding IsBackgroundAnimated}" />
+          <StackPanel HorizontalAlignment="Left">
+            <TextBlock FontSize="16"
+                        FontWeight="DemiBold"
+                        Text="{DynamicResource ThemePage.AnimationTitle}" />
+            <TextBlock Margin="0,12,70,0"
+                        Foreground="{DynamicResource SukiLowText}"
+                        Text="{DynamicResource ThemePage.AnimationDescription}"
+                        TextWrapping="Wrap" />
+          </StackPanel>
+        </DockPanel>
+      </suki:GlassCard>
+      <Button Classes="Rounded Flat" Margin="0, 0, 0, 0" HorizontalAlignment="Center" Command="{Binding FinishButton}" Content="{DynamicResource GeneralStrings.Done}" />
+    </StackPanel>
+  </Grid>
+
+</UserControl>

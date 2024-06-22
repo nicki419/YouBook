@@ -16,13 +16,14 @@
 
              >
   <Grid RowDefinitions="Auto, Auto, *">
-      <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="{DynamicResource WelcomePage.WelcomeTitle}" FontWeight="SemiBold"/>
-      <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Text="{DynamicResource WelcomePage.WelcomeContent}" />
-      <icon:MaterialIcon Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" ZIndex="-1" Opacity="0.015" Height="350" Width="350" Kind="Translate" />
+    <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="{DynamicResource WelcomePage.WelcomeTitle}" FontWeight="SemiBold"/>
+    <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Text="{DynamicResource WelcomePage.WelcomeContent}" />
+    <icon:MaterialIcon Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" ZIndex="-1" Foreground="{DynamicResource SukiText}" Opacity="0.05" Height="350" Width="350" Kind="Translate" />
 
-      <StackPanel Margin="0,100,0,0" Grid.Row="2">
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Text="{DynamicResource WelcomePage.Language}" />
-        <ComboBox Width="250" ItemsSource="{Binding SupportedCultures}" SelectedItem="{Binding SelectedSupportedCulture}" />
-      </StackPanel>
+    <StackPanel Margin="0,100,0,0" Grid.Row="2">
+      <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Text="{DynamicResource WelcomePage.Language}" />
+      <ComboBox Width="250" ItemsSource="{Binding SupportedCultures}" SelectedItem="{Binding SelectedSupportedCulture}" />
+      <Button Classes="Rounded Flat" Margin="0, 50, 0, 0" HorizontalAlignment="Center" Command="{Binding StartButtonClicked}" Content="{DynamicResource WelcomePage.StartButton}" />
+    </StackPanel>
   </Grid>
 </UserControl>

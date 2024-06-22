@@ -5,6 +5,9 @@ import os
 import xml.etree.ElementTree as ET
 import codecs
 
+global resx_folder
+resx_folder = "Lang"
+
 def convert_resx_to_axaml(resx_file):
     
     xml_tree = ET.parse(resx_file)
@@ -40,7 +43,6 @@ def find_resx_files(directory):
 
 def main():
 
-    resx_folder = "Lang"
     find_resx_files(resx_folder)
 
 if __name__ == "__main__":

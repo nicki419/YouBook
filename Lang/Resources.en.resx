@@ -133,7 +133,7 @@
     <value>Let's Go!</value>
     <comment />
   </data>
-	<data name="IntroDialogue.ThemePage.Title" xml:space="preserve">
+	<data name="ThemePage.Title" xml:space="preserve">
 		<value>Appearance</value>
 	</data>
 	<data name="GeneralStrings.Dark" xml:space="preserve">
@@ -145,10 +145,28 @@
 	<data name="GeneralStrings.System" xml:space="preserve">
 		<value>System</value>
 	</data>
-	<data name="IntroDialogue.ThemePage.Colour" xml:space="preserve">
-		<value>Colours</value>
+	<data name="ThemePage.ColourTheme" xml:space="preserve">
+		<value>Colour Theme</value>
 	</data>
 	<data name="GeneralStrings.Custom" xml:space="preserve">
 		<value>Custom</value>
+	</data>
+	<data name="GeneralStrings.Back" xml:space="preserve">
+		<value>Back</value>
+	</data>
+	<data name="GeneralStrings.Continue" xml:space="preserve">
+		<value>Continue</value>
+	</data>
+	<data name="GeneralStrings.Done" xml:space="preserve">
+		<value>Done</value>
+	</data>
+	<data name="ThemePage.BaseTheme" xml:space="preserve">
+		<value>Base Theme</value>
+	</data>
+	<data name="ThemePage.AnimationTitle" xml:space="preserve">
+		<value>Animated Background</value>
+	</data>
+	<data name="ThemePage.AnimationDescription" xml:space="preserve">
+		<value>Enable a 'cloud' effect in the background. The background will be dynamic and the colors spaces will change over time. Hard to see in light mode.</value>
 	</data>
 </root>

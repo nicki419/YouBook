@@ -13,29 +13,26 @@ using System.Diagnostics;
 
 namespace YouBook.Views.Dialogues
 {
-    public class IntroDialogueViewModel : ObservableObject
+    public partial class IntroDialogueViewModel : ViewModelBase
     {
         public IntroDialogueViewModel()
         {
             WelcomePageViewModel = new WelcomePageViewModel();
-            IntroStacksModel = new IntroStacksViewModel();
+            ThemePageViewModel = new ThemePageViewModel();
             _contentViewModel = WelcomePageViewModel;
+
+            MessageBus.Current.Listen<Models.Messages.StartButtonClickedMessage>().Subscribe(_ => StartButton());
+
             Debug.WriteLine("IntroDialogueModel created");
         }
-        private static void CloseDialog() => SukiHost.CloseDialog();
 
-        private ViewModels.ViewModelBase _contentViewModel;
-        public ViewModels.ViewModelBase ContentViewModel
-        {
-            get => _contentViewModel;
-            set => SetProperty(ref _contentViewModel, value);
-        }
+        [ObservableProperty]private ViewModelBase _contentViewModel;
 
         public WelcomePageViewModel WelcomePageViewModel;
-        public IntroStacksViewModel IntroStacksModel;
+        public ThemePageViewModel ThemePageViewModel;
 
-        private static void StartButton() {
-
+        private void StartButton() {
+            ContentViewModel = ThemePageViewModel;
         }
     }
 }

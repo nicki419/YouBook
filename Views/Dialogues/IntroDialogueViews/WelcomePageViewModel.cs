@@ -7,8 +7,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Collections;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ReactiveUI;
 using YouBook.Lang;
+using YouBook.Models.Messages;
 using YouBook.ViewModels;
 
 namespace YouBook.Views.Dialogues.IntroDialogueViews
@@ -50,6 +52,11 @@ namespace YouBook.Views.Dialogues.IntroDialogueViews
             LocalisationHelper.SetLanguage(cultureInfo ?? new CultureInfo("en"));
             Debug.WriteLine("Selected culture: " + LocalisationHelper.Culture.NativeName);
             
+        }
+
+        public void StartButtonClicked() {
+            Debug.WriteLine("Start button clicked");
+            MessageBus.Current.SendMessage(new StartButtonClickedMessage());
         }
     }
 }

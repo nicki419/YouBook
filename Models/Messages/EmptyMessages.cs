@@ -9,4 +9,9 @@ namespace YouBook.Models.Messages
     {
         public LoadIntroMessage() {}
     }
+
+    public class StartButtonClickedMessage
+    {
+        public StartButtonClickedMessage() {}
+    }
 }

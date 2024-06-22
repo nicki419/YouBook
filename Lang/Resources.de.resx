@@ -133,7 +133,7 @@
     <value>Los Geht's!</value>
     <comment />
   </data>
-	<data name="IntroDialogue.ThemePage.Title" xml:space="preserve">
+	<data name="ThemePage.Title" xml:space="preserve">
 		<value>Aussehen</value>
 	</data>
 	<data name="GeneralStrings.Dark" xml:space="preserve">
@@ -145,10 +145,28 @@
 	<data name="GeneralStrings.System" xml:space="preserve">
 		<value>System</value>
 	</data>
-	<data name="IntroDialogue.ThemePage.Colour" xml:space="preserve">
-		<value>Farben</value>
+	<data name="ThemePage.ColourTheme" xml:space="preserve">
+		<value>Farbpallette</value>
 	</data>
 	<data name="GeneralStrings.Custom" xml:space="preserve">
 		<value>Benutzerdefiniert</value>
+	</data>
+	<data name="GeneralStrings.Back" xml:space="preserve">
+		<value>Zurück</value>
+	</data>
+	<data name="GeneralStrings.Continue" xml:space="preserve">
+		<value>Weiter</value>
+	</data>
+	<data name="GeneralStrings.Done" xml:space="preserve">
+		<value>Fertig</value>
+	</data>
+	<data name="ThemePage.BaseTheme" xml:space="preserve">
+		<value>Erscheinungsbild</value>
+	</data>
+	<data name="ThemePage.AnimationTitle" xml:space="preserve">
+		<value>Animierter Hintergrund</value>
+	</data>
+	<data name="ThemePage.AnimationDescription" xml:space="preserve">
+		<value>Aktiviert einen 'Wolkeneffekt' im Hintergrund. Der Hintergrund ist dynamisch und die farbigen 'Wolken' verändern sich mit der Zeit. Schwer bei hellem Erscheinungsbild zu erkennen.</value>
 	</data>
 </root>
