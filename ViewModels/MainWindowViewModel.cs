@@ -20,7 +20,6 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     public MainWindowViewModel() {
         UserSettings = new UserSettings();
-        if(!IntroDialogueCanExecute()) ApplyUserSettings();
 
         MessageBus.Current.Listen<LanguageChangedMessage>().Subscribe(HandleLanguageChangedMessage);
         MessageBus.Current.Listen<ThemeChangedMessage>().Subscribe(HandleThemeChangedMessage);
@@ -37,6 +36,7 @@ public partial class MainWindowViewModel : ViewModelBase
         if(UserSettings.IsDarkTheme == null || UserSettings.ColourTheme == null || UserSettings.IsBackgroundAnimated == null || UserSettings.Language == null) {
             return true;
         } 
+        ApplyUserSettings();
         return false;
     }
 

@@ -38,7 +38,7 @@
                     </suki:SukiSideMenuItem.Icon>
                     <suki:SukiSideMenuItem.PageContent>
                         <Panel>
-                            <TextBlock Margin="200" Text="Statistics Page"></TextBlock>
+                            <TextBlock Margin="200" Text="{DynamicResource WelcomePage.WelcomeTitle}"></TextBlock>
                             <Button Command="{Binding OpenIntroDialogueCommand}">Click me</Button>	
                         </Panel>
                     </suki:SukiSideMenuItem.PageContent>
