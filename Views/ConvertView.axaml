@@ -3,12 +3,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:YouBook.ViewModels"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+
+             mc:Ignorable="d"
              x:Class="YouBook.Views.ConvertView"
              x:DataType="vm:ConvertViewModel"
-
-             mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="700"
-             MinWidth="1400" MinHeight="700"
-             Width="1400" Height="700"
              >
-  Welcome to Avalonia!
+  <TextBlock Margin="200" Text="{DynamicResource GeneralStrings.Download}"></TextBlock>
 </UserControl>

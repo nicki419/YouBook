@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+        xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         
         mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="700"
         MinWidth="1400" MinHeight="700"
@@ -31,16 +32,22 @@
             </suki:SukiSideMenu.HeaderContent>
 
             <suki:SukiSideMenu.Items>
-            
-                <suki:SukiSideMenuItem Header="Statistics">
+                <suki:SukiSideMenuItem Header="{DynamicResource GeneralStrings.Download}">
                     <suki:SukiSideMenuItem.Icon>
-                        <!-- your icon content -->
+                        <icon:MaterialIcon Kind="Download" />
                     </suki:SukiSideMenuItem.Icon>
                     <suki:SukiSideMenuItem.PageContent>
                         <Panel>
-                            <TextBlock Margin="200" Text="{DynamicResource WelcomePage.WelcomeTitle}"></TextBlock>
-                            <Button Command="{Binding OpenIntroDialogueCommand}">Click me</Button>	
+                            <TextBlock Margin="200" Text="{DynamicResource GeneralStrings.Download}"></TextBlock>
                         </Panel>
+                    </suki:SukiSideMenuItem.PageContent>
+                </suki:SukiSideMenuItem>
+                <suki:SukiSideMenuItem Header="{DynamicResource GeneralStrings.Convert}">
+                    <suki:SukiSideMenuItem.Icon>
+                        <icon:MaterialIcon Kind="PlaylistMusic" />
+                    </suki:SukiSideMenuItem.Icon>
+                    <suki:SukiSideMenuItem.PageContent>
+                        <UserControl Content="ConvertViewModel" />
                     </suki:SukiSideMenuItem.PageContent>
                 </suki:SukiSideMenuItem>
             </suki:SukiSideMenu.Items>

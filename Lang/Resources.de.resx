@@ -169,4 +169,10 @@
 	<data name="ThemePage.AnimationDescription" xml:space="preserve">
 		<value>Aktiviert einen 'Wolkeneffekt'. Der Hintergrund ist dynamisch und die farbigen 'Wolken' verändern sich mit der Zeit. Schwer bei hellem Erscheinungsbild zu erkennen.</value>
 	</data>
+	<data name="GeneralStrings.Download" xml:space="preserve">
+		<value>Herunterladen</value>
+	</data>
+	<data name="GeneralStrings.Convert" xml:space="preserve">
+		<value>Umwandeln</value>
+	</data>
 </root>

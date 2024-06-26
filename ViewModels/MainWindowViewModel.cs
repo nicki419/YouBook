@@ -20,10 +20,13 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     public MainWindowViewModel() {
         UserSettings = new UserSettings();
+        ConvertViewModel = new ConvertViewModel();
 
         MessageBus.Current.Listen<LanguageChangedMessage>().Subscribe(HandleLanguageChangedMessage);
         MessageBus.Current.Listen<ThemeChangedMessage>().Subscribe(HandleThemeChangedMessage);
     }
+
+    public ConvertViewModel ConvertViewModel { get; } 
 
     public UserSettings UserSettings { get; }
 

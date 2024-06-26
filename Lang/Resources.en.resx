@@ -169,4 +169,10 @@
 	<data name="ThemePage.AnimationDescription" xml:space="preserve">
 		<value>Enable a 'cloud' effect in the background. The background will be dynamic and the colors spaces will change over time. Hard to see in light mode.</value>
 	</data>
+	<data name="GeneralStrings.Download" xml:space="preserve">
+		<value>Download</value>
+	</data>
+	<data name="GeneralStrings.Convert" xml:space="preserve">
+		<value>Convert</value>
+	</data>
 </root>
