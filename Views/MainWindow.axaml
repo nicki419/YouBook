@@ -47,7 +47,7 @@
                         <icon:MaterialIcon Kind="PlaylistMusic" />
                     </suki:SukiSideMenuItem.Icon>
                     <suki:SukiSideMenuItem.PageContent>
-                        <UserControl Content="ConvertViewModel" />
+                        <UserControl Content="{Binding ConvertViewModel}" />
                     </suki:SukiSideMenuItem.PageContent>
                 </suki:SukiSideMenuItem>
             </suki:SukiSideMenu.Items>

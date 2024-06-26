@@ -26,7 +26,7 @@ public partial class MainWindowViewModel : ViewModelBase
         MessageBus.Current.Listen<ThemeChangedMessage>().Subscribe(HandleThemeChangedMessage);
     }
 
-    public ConvertViewModel ConvertViewModel { get; } 
+    public ConvertViewModel ConvertViewModel { get; }
 
     public UserSettings UserSettings { get; }
 

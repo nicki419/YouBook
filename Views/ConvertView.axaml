@@ -10,5 +10,5 @@
              x:Class="YouBook.Views.ConvertView"
              x:DataType="vm:ConvertViewModel"
              >
-  <TextBlock Margin="200" Text="{DynamicResource GeneralStrings.Download}"></TextBlock>
+  <TextBlock Text="{DynamicResource GeneralStrings.Convert}"></TextBlock>
 </UserControl>
