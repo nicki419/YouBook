@@ -6,7 +6,6 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-    <CoreCompileDependsOn>PrepareResources;$(CompileDependsOn)</CoreCompileDependsOn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Lang\*.axaml" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+
+  <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.1.0-beta2" />
     <PackageReference Include="Avalonia.Desktop" Version="11.1.0-beta2" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-beta2" />
@@ -24,26 +28,8 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0-beta2" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.0-beta2" />
     <PackageReference Include="CommunityToolkit.mvvm" Version="8.2.2" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="2.1.9" />
     <PackageReference Include="SukiUI" Version="6.0.0-beta7" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Lang\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <StronglyTypedFileName>Lang\Resources.Designer.cs</StronglyTypedFileName>
-      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
-      <StronglyTypedNamespace>YouBook.Lang</StronglyTypedNamespace>
-      <StronglyTypedClassName>Resources</StronglyTypedClassName>
-      <PublicClass>true</PublicClass>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Lang\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
   </ItemGroup>
 </Project>
