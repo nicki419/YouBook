@@ -8,6 +8,8 @@ using YouBook.Lang;
 using Avalonia.Markup.Xaml.Styling;
 using System;
 using System.Linq;
+using System.Configuration;
+using System.Diagnostics;
 
 namespace YouBook;
 
@@ -22,7 +24,7 @@ public partial class App : Application
     {
         LocalisationHelper.SupportedCultures = LocalisationHelper.GetSupportedCultures();
         LocalisationHelper.AutoSetCulture();
-
+        Debug.WriteLine(GetDefaultExeConfigPath(ConfigurationUserLevel.PerUserRoamingAndLocal));
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
@@ -34,5 +36,18 @@ public partial class App : Application
 
         base.OnFrameworkInitializationCompleted();
         LocalisationHelper.SetLanguage(LocalisationHelper.Culture);
+    }
+
+    public static string GetDefaultExeConfigPath(ConfigurationUserLevel userLevel)
+    {
+    try
+    {
+        var UserConfig = ConfigurationManager.OpenExeConfiguration(userLevel);
+        return UserConfig.FilePath;
+    }
+    catch (ConfigurationException e)
+    {
+        return e.Filename;
+    }
     }
 }
