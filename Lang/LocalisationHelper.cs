@@ -69,6 +69,7 @@ namespace YouBook.Lang
             {
                 Source = new Uri($"avares://YouBook/Lang/Resources.{(targetLanguage.Parent.Name == "" ? targetLanguage.Name : targetLanguage.Parent.Name)}.axaml")
             });
-    }
+        Culture = targetLanguage;
+        }
     }
 }

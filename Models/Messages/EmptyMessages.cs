@@ -14,4 +14,15 @@ namespace YouBook.Models.Messages
     {
         public StartButtonClickedMessage() {}
     }
+
+    public class LanguageChangedMessage
+    {
+        public LanguageChangedMessage()
+        {
+        }
+    }
+
+    public class ThemeChangedMessage {
+        public ThemeChangedMessage() { }
+    }
 }

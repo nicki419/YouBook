@@ -7,9 +7,11 @@ using Avalonia.Collections;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ReactiveUI;
 using SukiUI;
 using SukiUI.Controls;
 using SukiUI.Models;
+using YouBook.Lang;
 using YouBook.ViewModels;
 
 namespace YouBook.Views.Dialogues.IntroDialogueViews
@@ -51,6 +53,7 @@ namespace YouBook.Views.Dialogues.IntroDialogueViews
 
         public void FinishButton() {
             Debug.WriteLine("Finish button clicked");
+            MessageBus.Current.SendMessage(new Models.Messages.ThemeChangedMessage());
             SukiHost.CloseDialog();
         }
     }

@@ -51,11 +51,11 @@ namespace YouBook.Views.Dialogues.IntroDialogueViews
                 .FirstOrDefault(culture => culture.NativeName.Equals(newValue, StringComparison.InvariantCultureIgnoreCase));
             LocalisationHelper.SetLanguage(cultureInfo ?? new CultureInfo("en"));
             Debug.WriteLine("Selected culture: " + LocalisationHelper.Culture.NativeName);
-            
         }
 
         public void StartButtonClicked() {
             Debug.WriteLine("Start button clicked");
+            MessageBus.Current.SendMessage(new LanguageChangedMessage());
             MessageBus.Current.SendMessage(new StartButtonClickedMessage());
         }
     }
