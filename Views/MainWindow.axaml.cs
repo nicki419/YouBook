@@ -1,6 +1,8 @@
 using System;
 using System.Diagnostics;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.VisualTree;
 using ReactiveUI;
 using SukiUI.Controls;
 using YouBook.Models.Messages;
@@ -25,6 +27,7 @@ public partial class MainWindow : SukiWindow
                 viewModel.OpenIntroDialogueCommand.Execute(null);
             }
             this.DataContextChanged -= MainWindow_DataContextChanged;
+            viewModel.ApplyUserSettings();
         }
     }
 }

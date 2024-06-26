@@ -13,6 +13,7 @@ using SukiUI;
 using YouBook.Lang;
 using Avalonia.Styling;
 using System.Linq;
+using Avalonia;
 
 namespace YouBook.ViewModels;
 
@@ -39,14 +40,14 @@ public partial class MainWindowViewModel : ViewModelBase
         if(UserSettings.IsDarkTheme == null || UserSettings.ColourTheme == null || UserSettings.IsBackgroundAnimated == null || UserSettings.Language == null) {
             return true;
         } 
-        ApplyUserSettings();
         return false;
     }
 
-    private void ApplyUserSettings() {
+    public void ApplyUserSettings() {
         if(UserSettings.IsDarkTheme != null && UserSettings.ColourTheme != null && UserSettings.IsBackgroundAnimated != null && UserSettings.Language != null) {
             var _theme = SukiTheme.GetInstance();
-            _theme.ChangeBaseTheme(UserSettings.IsDarkTheme == true ? ThemeVariant.Dark : ThemeVariant.Light);
+            _theme.ChangeBaseTheme((bool)UserSettings.IsDarkTheme ? ThemeVariant.Dark : ThemeVariant.Light);
+            Application.Current.RequestedThemeVariant = UserSettings.IsDarkTheme == true ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light;
             _theme.ChangeColorTheme(_theme.ColorThemes.First(theme => theme.DisplayName == UserSettings.ColourTheme));
             _theme.SetBackgroundAnimationsEnabled(UserSettings.IsBackgroundAnimated == true);
             LocalisationHelper.SetLanguage(UserSettings.Language);

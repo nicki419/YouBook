@@ -10,6 +10,7 @@ using System;
 using System.Linq;
 using System.Configuration;
 using System.Diagnostics;
+using Avalonia.Styling;
 
 namespace YouBook;
 
@@ -49,5 +50,10 @@ public partial class App : Application
     {
         return e.Filename;
     }
+    }
+
+    public static explicit operator App(ThemeVariant? v)
+    {
+        throw new NotImplementedException();
     }
 }
