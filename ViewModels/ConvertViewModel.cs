@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace YouBook.ViewModels
 {
-    public class ConvertViewModel
+    public class ConvertViewModel : ViewModelBase
     {
-        
+        public ConvertViewModel() {}
     }
 }
